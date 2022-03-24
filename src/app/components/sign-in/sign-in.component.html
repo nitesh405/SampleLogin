@@ -1,0 +1,38 @@
+<div  fxLayout="column" class="background" fxFlex="100" fxLayoutAlign="center stretch">
+
+    <div fxLayout="row"  fxFlex="100" fxLayoutAlign="center center">
+        <mat-card  fxFlex="30%"  fxLayoutAlign="center center">
+            <form fxLayout="column" style="margin:auto;" [formGroup]="loginDetails" fxLayoutGap="2em">
+                <h2>Sign In</h2>
+                <div style="color: rgb(241, 98, 98);">
+                    {{message}}
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input type="text" formControlName="email" matInput>
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error>Email required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input type="password" formControlName="password" matInput>
+                        <mat-icon matSuffix>remove_red_eye</mat-icon>
+                        <mat-error>Password required</mat-error>
+                    </mat-form-field>
+                </div>
+    
+                <div>
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <button [class.spinner]="loading" [disabled]="!loginDetails.valid || loading" color="accent" mat-raised-button (click)="submit()">signIn</button>
+                        <span style="cursor: pointer; font-weight: 600;"  routerLink="/sign-Up">Sing up</span>
+                    </div>
+                   
+                </div>
+            </form>
+        </mat-card>
+    </div>
+
+</div>

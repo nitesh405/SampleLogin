@@ -1,0 +1,23 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="px" style="width: 100%;">
+    <div fxLayout="column" *ngIf="usr.length != 0">
+        <div fxLayout="row" fxLayoutAlign="start stretch" *ngFor="let item of usr"style="width: 100%;" >
+            <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="width: 100%;">
+                <div fxFlex = "5">
+                    <img src="{{item.url}}" height="100" width="100" alt="">
+                    <!-- <mat-icon style="font-size: 40px; color: gray; width: 40px;height: 40px;">image</mat-icon> -->
+                </div>
+                
+                <div fxFlex = "40">
+                    <span>{{item.name}}</span>
+                </div>
+             
+            </div>
+    
+        </div>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="center center"><h2 *ngIf="usr.length == 0">No Files</h2></div>
+    
+
+
+</div>

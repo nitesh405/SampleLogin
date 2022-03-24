@@ -1,0 +1,53 @@
+<div fxLayout="row"  style="width: 100%;">
+    <div fxLayout="column" fxLayoutAlign="start stretch" fxFlex='100' fxLayoutGap="2em" style="width: 100%;">
+        <div style="border-bottom: 2px solid lightgray; font-size: 20px; color: gray; font-weight: 500; padding: 10px ;"
+            fxLayout="row" fxLayoutAlign="center start">
+            <span>File Upload</span>
+        </div>
+    
+        <div fxLayout="row" fxLayoutAlign="center stretch" fxFlex='100'>
+            <div fxLayout="column" fxLayoutAlign="start center" fxFlex='50' fxLayoutGap="5px">
+                <div fxLayoutAlign="center center"  (click)="fileUpload.click()"
+                    style=" cursor: pointer; border: dashed 2px gray; color: gray; height: 200px; width: 50%; border-radius: 5px;"
+                    fxLayout="column" fxLayoutGap="5px">
+    
+                    <input #fileUpload type="file" class="file-input"
+                        accept="image/jpeg, .jpeg, image/png, .png, image/pjpeg, .jpg, .docx, .pdf"
+                        (change)="selectFile($event)" />
+    
+                    
+                        <mat-icon style="color: green;">cloud_upload</mat-icon>
+               
+                    <span style="font-size: 20px;">click here</span>
+                </div>
+    
+                <div >
+                    {{selectedFiles?.name}}
+                </div>
+                <div style="width: 50%;">
+                    <mat-progress-bar mode="determinate"  [value]="percentage"></mat-progress-bar>{{percentage}}
+                </div>
+                
+                <div>
+                    <button mat-flat-button style="background: linear-gradient(89.81deg, #2F9FFD 0.15%, #3AEDFE 97.25%); color: white;
+                    box-shadow: 0px 4px 4px 0px #00000040;"
+                      [disabled]="!selectedFiles"
+                      (click) ='upload()'
+                       >Upload</button>
+                </div>
+            </div>
+            <div fxLayout="column" *ngIf="false" fxLayoutAlign="start start" fxFlex='50'>
+                <span style=" font-size: 20px; color: gray; font-weight: 500; ">List of Files</span>
+                <div fxLayout="row" fxLayoutAlign="center stretch" fxLayoutGap="10px" *ngFor="let item of items">
+                    <div>
+                        <mat-icon>image</mat-icon>
+                    </div>
+                    <div>
+                        <!-- {{item?.name}} -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 

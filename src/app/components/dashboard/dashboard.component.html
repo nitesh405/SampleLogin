@@ -1,0 +1,30 @@
+<div fxLayout="column" fxLayoutAlign="center stretch" fxLayoutGap="3em">
+    <mat-toolbar color="primary">
+        <span>Demo Project</span>
+        <div fxLayoutAlign="end center" fxFlex="100" fxLayoutGap="0.5em">
+            <mat-icon style="cursor: pointer;" (click)="logout()" matTooltip="logout">exit_to_app</mat-icon> <span>{{user}}</span>
+        </div>
+    </mat-toolbar>
+    <div fxLayout="column" fxLayoutAlign="center center" >
+        <div style="width: 95%;" fxLayout="row" fxLayoutGap="1em">
+            <div fxLayout="column" fxLayoutGap="1em" style="width: 15%;">
+                <div fxLayout="column">
+                    <button color="accent" mat-raised-button (click)="isAddFile=true;isListFiles=false">Add File</button>
+                </div>
+              
+                <div fxLayout="column">
+                    <button color="accent" (click)="isAddFile=false;isListFiles=true"  mat-raised-button>List of Files</button>
+                </div>
+            </div>
+
+            <div fxFlex="80" *ngIf="isAddFile">
+                <app-upload-form></app-upload-form>
+            </div>
+            <div fxFlex="80" *ngIf="isListFiles">
+                <app-list-of-files></app-list-of-files>
+            </div>
+        </div>
+        
+    </div>
+ 
+</div>
