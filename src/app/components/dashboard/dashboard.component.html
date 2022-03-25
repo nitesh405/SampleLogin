@@ -2,7 +2,7 @@
     <mat-toolbar color="primary">
         <span>Demo Project</span>
         <div fxLayoutAlign="end center" fxFlex="100" fxLayoutGap="0.5em">
-            <mat-icon style="cursor: pointer;" (click)="logout()" matTooltip="logout">exit_to_app</mat-icon> <span>{{user}}</span>
+            <mat-icon style="cursor: pointer;" (click)="logout()" matTooltip="logout">exit_to_app</mat-icon> <span>{{fireAuthService.currentUser}}</span>
         </div>
     </mat-toolbar>
     <div fxLayout="column" fxLayoutAlign="center center" >

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuthService } from 'src/app/services/angular-fire-auth.service';
 import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { FileUploadService } from 'src/app/services/file-upload.service';
 export class ListOfFilesComponent implements OnInit {
   usr: any = [];
   constructor(
-    private uploadService : FileUploadService
+    private uploadService : FileUploadService,private authAuthServ:AngularFireAuthService
   ) { }
 
   ngOnInit(): void {
@@ -18,9 +19,14 @@ export class ListOfFilesComponent implements OnInit {
   }
 
   getFiles(){
-    let email:any=localStorage.getItem('email');
-    this.uploadService.getFiles(email).then(res => {
-      this.usr=res.docs.map(e=> e.data())
+    let email:any=this.authAuthServ.currentUser;
+    this.uploadService.getFiles(email).subscribe(res=>{
+      this.usr=res;
+    })
+  }
+
+  delete(item:any){
+    this.uploadService.deleteFile(item.id).then(res=>{
     })
   }
 }

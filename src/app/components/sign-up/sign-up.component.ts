@@ -24,7 +24,6 @@ export class SignUpComponent implements OnInit {
     this.fireAuthService.signUp(email, password).then((res:any)=>{
       if(res){
         this.loading=false;
-        localStorage.setItem('email',res['user'].multiFactor.user.email)
         this.router.navigate(['/dashboard'])
       }
     

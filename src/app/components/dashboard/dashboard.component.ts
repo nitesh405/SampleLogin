@@ -7,20 +7,17 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router'
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit{
-user:any;
 isAddFile:boolean=false;
 isListFiles:boolean=false;
-  constructor(private fireAuthService:AngularFireAuthService,private router:Router) { }
+  constructor(public fireAuthService:AngularFireAuthService,private router:Router) { }
 
   logout(){
     this.fireAuthService.signOut().then(res=>{
       console.log('logged out',res)
-      localStorage.clear();
       this.router.navigate(['/sign-In'])
     })
   }
   ngOnInit(): void {
-   this.user=localStorage.getItem('email')
   }
 
   navigate(val: any){

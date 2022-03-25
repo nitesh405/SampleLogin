@@ -33,6 +33,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FlexLayoutModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    MatGridListModule,
     AngularFireDatabaseModule,
     FlexLayoutModule,
     MatInputModule,
