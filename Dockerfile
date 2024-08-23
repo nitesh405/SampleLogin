@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build --prod
+RUN npm run start:prod
 
 FROM nginx:alpine
 COPY nginx.config /etc/nginx/nginx.config
