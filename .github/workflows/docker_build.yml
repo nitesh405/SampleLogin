@@ -20,7 +20,7 @@ jobs:
             password: ${{secrets.DOCKERHUB_PASSWORD}}
         
         - name: Build and push docker image
-          uses: docker/build-push-action@6
+          uses: docker/build-push-action@6.7.0
           with: 
             push: true
             tags: niteshdesai/testdemo:latest
